@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: dockercontainer23
-        image: nethrashreec/mavenbuild:latest
+        image: mavenbuildproject:latest
         ports:
         - containerPort: 8082
 
