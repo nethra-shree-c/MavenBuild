@@ -29,7 +29,7 @@ spec:
     app: mavenbuild
   ports:
   - protocol: TCP
-    port: 8082
+    port: 8080
     targetPort: 8082
     nodePort: 31000
   type: NodePort
