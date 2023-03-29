@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mavenbuild
+  template:
+    metadata:
+      labels:
+        app: mavenbuild
+    spec:
+      containers:
+      - name: dockercontainer23
+        image: nethrashreec/mavenbuild:latest
+        ports:
+        - containerPort: 8082
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: project-service
+spec:
+  selector:
+    app: mavenbuild
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8082
+    nodePort: 31000
+  type: NodePort
